@@ -5,7 +5,7 @@ Summary:        A tool to generate compilation database for clang tooling.
 
 License:        GPLv3
 URL:            https://github.com/rizsotto/Bear
-Source0:        https://github.com/rizsotto/Bear/archive/%{name}-%{version}.tar.gz
+Source0:        https://github.com/rizsotto/Bear/archive/%{version}.tar.gz
 
 %description
 Bear is a tool that generates a compilation database for clang tooling.
