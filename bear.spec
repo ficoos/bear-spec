@@ -13,9 +13,16 @@ Bear is a tool that generates a compilation database for clang tooling.
 %prep
 %setup -q
 
+%define generate_debuginfo() ( \
+cp %1{,.debug}; \
+objcopy --only-keep-debug "%1.debug"; \
+strip --strip-debug --strip-unneeded "%1"; \
+objcopy "--add-gnu-debuglink=%1.debug" "%1")
 
 %build
-cmake -DCMAKE_INSTALL_PREFIX=%{_prefix}
+cmake -DCMAKE_INSTALL_PREFIX=%{_prefix} \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_C_FLAGS=-g
 %{__make} %{?jobs:-j%jobs}
 
 
@@ -25,7 +32,7 @@ cmake -DCMAKE_INSTALL_PREFIX=%{_prefix}
 
 %files
 %{_bindir}/bear
-%{_libdir}/libear.so
+%{_libdir}/bear/libear.so
 %{_docdir}/bear/COPYING
 %{_docdir}/bear/ChangeLog.md
 %{_docdir}/bear/README.md
