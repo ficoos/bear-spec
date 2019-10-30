@@ -34,6 +34,7 @@ cmake -DCMAKE_INSTALL_PREFIX=%{_prefix} \
 %{_docdir}/bear/ChangeLog.md
 %{_docdir}/bear/README.md
 %{_mandir}/man1/bear.1.gz
+%{_datadir}/bash-completion/completions/bear
 
 
 %changelog
