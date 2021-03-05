@@ -1,5 +1,5 @@
 Name:           Bear
-Version:        3.0.8
+Version:        3.0.9
 Release:        2%{?dist}
 Summary:        A tool to generate compilation database for clang tooling.
 
